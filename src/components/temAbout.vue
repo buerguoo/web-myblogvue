@@ -4,7 +4,7 @@
         <header>
             <h1>
                 <a href="#/DetailShare" target="_blank">
-                    关于我
+                    关于我们的团队
                 </a>
             </h1>
         </header>
@@ -45,7 +45,7 @@
     color:#01AAED!important;
 }
 .tcommonBox p a:hover{
-    color:#48456d!important;
+    color:#2e2968!important;
 }
 .tcommonBox p i{
     font-style: italic;

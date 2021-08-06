@@ -3,7 +3,7 @@ import axios from 'axios'
 //公共路径
 // let portUrl = "http://www.mangoya.cn/port/";
 //let portUrl = "http://"+window.location.host+"/port/";
-let portUrl = "http://192.168.0.219:8080/";
+let portUrl = "http://192.168.1.102:8080/";
 
 //用户注册
 const getRegister = (username,password,email,callback) =>{

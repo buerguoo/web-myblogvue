@@ -1,11 +1,10 @@
-<!-- 首页 -->
 <template>
     <div>
         <wbc-nav></wbc-nav>
-        <div class="container":style="{backgroundImage:this.$store.state.themeObj.top_image?'url('+this.$store.state.themeObj.top_image+')':'url(static/img/headbg02.jpg)'}">
+        <div class="container">
             <el-row  :gutter="30">
                 <el-col :sm="24" :md="16" style="transition:all .5s ease-out;margin-bottom:30px;">
-                    <wbc-sharelist></wbc-sharelist>
+                    <wbc-edittxt></wbc-edittxt>
                 </el-col>
                 <el-col :sm="24"  :md="8" >
                     <wbc-rightlist></wbc-rightlist>
@@ -19,8 +18,8 @@
 <script>
 import header from '../components/header.vue'
 import footer from '../components/footer.vue'
-import temSharelist from '../components/temSharelist.vue'
 import temRightlist from '../components/temRightlist.vue'
+import temEdit from '../components/temEdit.vue'
     export default {
         name:'Home',
         data() { //选项 / 数据
@@ -33,9 +32,9 @@ import temRightlist from '../components/temRightlist.vue'
         },
         components: { //定义组件
             'wbc-nav':header,
-            'wbc-sharelist':temSharelist,
             'wbc-rightlist':temRightlist,
-            'wbc-footer':footer
+            'wbc-footer':footer,
+            'wbc-edittxt':temEdit
         },
         created() { //生命周期函数
 
