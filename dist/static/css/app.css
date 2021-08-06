@@ -1141,7 +1141,7 @@ to {
 .h-information h2  a{
 	background: -webkit-gradient(linear, left top, right top, from(#DF2050), to(#48456D));
 	background: linear-gradient(to right, #DF2050, #48456D);
-	-webkit-background-clip: text;
+	/*-webkit-background-clip: text;*/
 	color: transparent;
 }
 .headImgBox .scene {
@@ -1245,11 +1245,11 @@ to {
     height:auto;
     margin:0;
 }
-.footBackHui .fcontainer{
-    /*z-index: 1;*/
-    /*position: absolute;*/
-    /*bottom:0;*/
-}
+/*.footBackHui .fcontainer{*/
+/*z-index: 1;*/
+/*position: absolute;*/
+/*bottom:0;*/
+/*}*/
 .footBack p{
     margin:5px 0;
     z-index: 3;
@@ -1496,6 +1496,12 @@ to {
 0%,100% {
     	-webkit-transform:translate(0,0) rotate(0);
     	transform:translate(0,0) rotate(0)
+}
+}
+@keyframes my-face {
+0%,
+        50% {
+            opacity: 1;
 }
 }
 
@@ -3328,6 +3334,9 @@ to {
 
 
 
+
+
+
 /*登录注册标题*/
 .loginTitle{
     text-align: center;
@@ -3450,9 +3459,10 @@ to {
     color:#fff;
     cursor: pointer;
 }
+/*
 .registerSuc .sucContent  .el-icon-close{
     fong-size: 13px;
-}
+}*/
 
 .userInfoBox .avatarlist{
     position: relative;

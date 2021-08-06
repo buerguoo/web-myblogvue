@@ -192,7 +192,7 @@ import {getUserInfo,UserInfoSave} from '../utils/server.js'//获取用户信息�
             handleAvatarSuccess(res, file) {//上传头像
                 // console.log('用户头像',res.image_name,file);
                 // console.log(URL.createObjectURL(file.raw));
-                if(res.code==1001){//存储
+                if(res.code==1010){//存储
                     this.userInfoObj.avatar = res.image_name;
                     this.userInfoObj.head_start = 1;
                 }else{
@@ -213,7 +213,7 @@ import {getUserInfo,UserInfoSave} from '../utils/server.js'//获取用户信息�
                 return isJPG && isLt2M;
             },
             handleLogoSuccess(res, file) { //上传网站logo
-                if(res.code==1001){//存储
+                if(res.code==1010){//存储
                     this.userInfoObj.image = res.image_name;
                     this.userInfoObj.logo_start = 1;
                 }else{

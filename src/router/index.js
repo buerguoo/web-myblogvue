@@ -19,6 +19,7 @@ export default new Router({
 			}
 		}
 	},
+	base: '/web/',
 	routes: [{
 			path: '/',
 			component: resolve => require(['../pages/Home.vue'], resolve),
@@ -116,6 +117,6 @@ export default new Router({
 				auth: true
 			},
 			name: 'LikeCollect'
-		} //用户个人中心
+		} //用户喜欢和收藏列表
 	]
 })
