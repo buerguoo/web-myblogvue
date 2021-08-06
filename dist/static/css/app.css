@@ -818,6 +818,9 @@ div.rightlistBox .rs2.fixed {
 
 
 
+
+
+
 /*********头部导航栏********/
 
 /*头部导航栏盒子*/
@@ -1141,7 +1144,7 @@ to {
 .h-information h2  a{
 	background: -webkit-gradient(linear, left top, right top, from(#DF2050), to(#48456D));
 	background: linear-gradient(to right, #DF2050, #48456D);
-	/*-webkit-background-clip: text;*/
+	-webkit-background-clip: text;
 	color: transparent;
 }
 .headImgBox .scene {
@@ -1150,7 +1153,7 @@ to {
 	text-align: center;
 	font-size: 100px;
 	font-weight: 200;
-	color: #fff;
+	color: rgb(109, 71, 247);
 	position: absolute;
 	left: 0;
 	top: 160px;
@@ -3013,7 +3016,7 @@ to {
     color:#01AAED!important;
 }
 .tcommonBox p a:hover{
-    color:#48456d!important;
+    color:#2e2968!important;
 }
 .tcommonBox p i{
     font-style: italic;

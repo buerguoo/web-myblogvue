@@ -41,7 +41,7 @@
         </section>
         <section :class="fixDo?'rs2 fixed':'rs2'" @click="lovemeFun">
             <p>
-                Do you like me?
+                Do you like ours?
             </p>
             <div class="">
                 <i :class="loveme?'heart active':'heart'" ></i>

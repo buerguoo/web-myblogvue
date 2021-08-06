@@ -399,7 +399,7 @@ const Typeit = (isAimee,emId) =>{
             speech：所有的speech。
          ***/
          if(isAimee!=0){
-             var world = "Aimee";
+             var world = "Developer";
          }else{
              var world = "Qinlh";
          }
@@ -420,7 +420,7 @@ const Typeit = (isAimee,emId) =>{
         theater
                 .write("Luke:Hello!",1000)
 //                .write("Vader:I am your father.", toggleClass)
-                .write("Luke:Hi,"+world, 500)
+                .write("Luke:"+world, 500)
                 .write({ name: "call", args: [kill, true] })
                 .write(function () { theater.play(true); });
         function kill () {

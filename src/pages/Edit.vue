@@ -21,7 +21,7 @@ import footer from '../components/footer.vue'
 import temRightlist from '../components/temRightlist.vue'
 import temEdit from '../components/temEdit.vue'
     export default {
-        name:'Home',
+        name:'Edit',
         data() { //选项 / 数据
             return {
 

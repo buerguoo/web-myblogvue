@@ -117,6 +117,15 @@ export default new Router({
 				auth: true
 			},
 			name: 'LikeCollect'
-		} //用户喜欢和收藏列表
+		}, //用户喜欢和收藏列表
+
+		{
+			path: '/Edit',
+			component: resolve => require(['../pages/Edit.vue'], resolve),
+			meta: {
+				auth: true
+			},
+			name: 'Edit'
+		} //编辑文章
 	]
 })
