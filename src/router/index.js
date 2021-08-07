@@ -19,7 +19,7 @@ export default new Router({
 			}
 		}
 	},
-	base: '/web/',
+	base: '/web/',//打包项目的根目录
 	routes: [{
 			path: '/',
 			component: resolve => require(['../pages/Home.vue'], resolve),

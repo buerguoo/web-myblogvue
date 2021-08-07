@@ -41,7 +41,7 @@ const ArtClassData = (callback) => {
         let url = portUrl + 'article/ArtClassData';
         axios.get(url).then(num => {
             // console.log(num);
-            if(num.data.code==1001){
+            if(num.data.code==1010){
                 sessionStorage.setItem('classList',JSON.stringify(num.data.data));
                 callback && callback(num.data.data)
             }else{
@@ -60,7 +60,7 @@ const navMenList  = (callback) => {
         let url = portUrl + 'nav/navMenList';
         axios.get(url).then(num => {
             // console.log(num);
-            if(num.data.code==1001){
+            if(num.data.code==1010){
                 sessionStorage.setItem('navMenList',JSON.stringify(num.data.data));
                 callback && callback(num.data.data)
             }else{
@@ -86,7 +86,7 @@ const ShowArticleAll = (artId,cateId,articleName,level,callback) =>{
 const getArticleInfo = (artId,userId,callback) =>{
     let url = portUrl + 'article/getArticleInfo?art_id='+artId+'&user_id='+userId;
     axios.get(url).then(num => {
-        if(num.data.code==1001){
+        if(num.data.code==1010){
             callback && callback(num.data.data);
         }else{
             alert("查询失败");
@@ -98,7 +98,7 @@ const getArticleInfo = (artId,userId,callback) =>{
 const ShowBrowseCount = (callback) =>{
     let url = portUrl + 'article/ShowBrowseCount';
     axios.get(url).then(num => {
-        if(num.data.code==1001){
+        if(num.data.code=1010){
             callback && callback(num.data.data);
         }else if(num.data.code==1005){
             return;
@@ -112,7 +112,7 @@ const ShowBrowseCount = (callback) =>{
 const ShowArtCommentCount = (callback) =>{
     let url = portUrl + 'article/ShowArtCommentCount';
     axios.get(url).then(num => {
-        if(num.data.code==1001){
+        if(num.data.code==1010){
             callback && callback(num.data.data);
         }else if(num.data.code==1005){
             return;
@@ -157,7 +157,7 @@ const setOuthComment = (content,user_id,article_id,leave_id,leave_pid,pid,callba
 const showLikeData = (callback) =>{
     let url = portUrl + 'outh/showLikeData';
     axios.get(url).then(num => {
-        if(num.data.code==1001){
+        if(num.data.code==1010){
             // console.log(num.data,parseInt(num.data));
             callback && callback(num.data.data);
         }else{
@@ -170,7 +170,7 @@ const showLikeData = (callback) =>{
 const GetLike = (like_num,callback) =>{
     let url = portUrl + 'outh/GetLike?like_num='+like_num;
     axios.get(url).then(num => {
-        if(num.data.code==1001){
+        if(num.data.code==1010){
             callback && callback(num.data.msg);
         }else{
             alert("点赞失败");
@@ -182,7 +182,7 @@ const GetLike = (like_num,callback) =>{
 const FriendUrlData = (callback) =>{
     let url = portUrl + 'outh/FriendUrlData';
     axios.get(url).then(num => {
-        if(num.data.code==1001){
+        if(num.data.code==1010){
             callback && callback(num.data.data);
         }else if(num.data.code==1005){
             return;
@@ -200,7 +200,7 @@ const AboutMeData = (callback) =>{
     }else{
         let url = portUrl + 'outh/AboutMeData';
         axios.get(url).then(num => {
-            if(num.data.code==1001){
+            if(num.data.code==1010){
                 sessionStorage.setItem('AboutMeData',JSON.stringify(num.data.data));
                 callback && callback(num.data.data);
             }else if(num.data.code==1005){
@@ -221,7 +221,7 @@ const getArtLikeCollect = (userId,artId,islike,callback) =>{
         url = portUrl + 'article/getArtCollect?user_id='+userId+'&art_id='+artId;
     }
     axios.get(url).then(num => {
-        if(num.data.code==1001){
+        if(num.data.code==1010){
             callback && callback(num.data.msg);
         }else{
             alert("查询失败");
@@ -233,7 +233,7 @@ const getArtLikeCollect = (userId,artId,islike,callback) =>{
 const AdmireData = (callback) => {
     let url = portUrl + 'outh/AdmireData';
     axios.get(url).then(num => {
-        if(num.data.code==1001){
+        if(num.data.code==1010){
             callback && callback(num.data);
         }else{
             alert("查询失败");
@@ -258,7 +258,7 @@ const getLikeCollectList = (userId,artId,articleName,islike,callback)=>{
 const getUserInfo = (userId,callback)=>{
     let url = portUrl + 'Userinfo/getUserInfo?user_id='+userId;
     axios.get(url).then(num => {
-        if(num.data.code==1001){
+        if(num.data.code==1010){
             callback && callback(num.data);
         }else{
             alert("查询失败");
@@ -285,7 +285,7 @@ const UserInfoSave = (obj,callback) =>{
     };
     // console.log(data);
     axios.get(url,{params:data}).then(num => {
-        if(num.data.code==1001){
+        if(num.data.code==1010){
             callback && callback(num.data.msg);
         }else{
             alert("保存失败");
@@ -322,7 +322,7 @@ const changeTheme = (callback) => {
     }else{
         let url = portUrl + 'outh/ThemeMy';
         axios.get(url).then(num => {
-            if(num.data.code==1001){
+            if(num.data.code==1010){
                 sessionStorage.setItem('changeThemeObj',JSON.stringify(num.data.data))
                 callback && callback(num.data.data);
             }else{
@@ -330,6 +330,27 @@ const changeTheme = (callback) => {
             }
         })
     }
+}
+
+const getEdit = (id,callback)=>{
+    let url = portUrl + 'Edit/getEdit?user_id='+id;
+    axios.get(url).then(num => {
+        const blogId = this.$route.params.blogId
+           const _this = this
+           if(blogId) {
+               this.$axios.get('/blog/' + blogId).then((res) => {
+                   const blog = res.data.data
+                    _this.editForm.id = blog.id
+                    _this.editForm.title = blog.title
+                    _this.editForm.content = blog.content
+                });
+            }
+        if(num.data.code==1010){
+            callback && callback(num.data);
+        }else{
+            alert("发布失败");
+        }
+    })
 }
 
 export {
@@ -357,4 +378,5 @@ export {
         UserInfoSave,//修改用户信息
         initDate,//设置时间
         changeTheme,//获取主题信息
+        getEdit,//编辑发布文章
     }

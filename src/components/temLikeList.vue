@@ -96,7 +96,7 @@ import {ShowArticleAll,initDate,getLikeCollectList,getArtLikeCollect} from '../u
                     that.articleList = [];
                 }
                 getLikeCollectList(that.userId,that.artId,that.articleName,that.like,(result)=>{
-                    if(result.code==1001){
+                    if(result.code==1010){
                         var msg = result.data;
                         // console.log(result.data);
                         if(msg.length>0&&msg.length<8){

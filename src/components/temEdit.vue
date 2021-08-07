@@ -20,11 +20,12 @@
 </template>
 
 <script>
+import {getEdit,getArtLikeCollect,initDate} from '../utils/server.js'
     export default {
         data() { //选项 / 数据
             return {
                 editForm: {
-                     id: null,
+                     artId: '',
                      title: '',
                      content: ''
                 },
@@ -43,7 +44,7 @@
            if(blogId) {
                this.$axios.get('/blog/' + blogId).then((res) => {
                    const blog = res.data.data
-                    _this.editForm.id = blog.id
+                    _this.editForm.id = blog.artId
                     _this.editForm.title = blog.title
                     _this.editForm.content = blog.content
                 });
@@ -67,7 +68,7 @@
                             });
                         });
                 } else {
-                     console.log('error submit!!');
+                     //console.log('error submit!!');
                      return false;
                 }
               })

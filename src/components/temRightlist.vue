@@ -5,11 +5,11 @@
             <div class="r1-head">
                 <img :src="this.$store.state.themeObj.center_smailimg?this.$store.state.themeObj.center_smailimg:'static/img/headtou02.jpg'" alt="">
                 <h1 v-if="this.$store.state.themeObj.user_start!=0">
-                    <span>女王</span>Aimee
+                    <span>你好</span>开发者
                 </h1>
             </div>
             <div class="r1-body">
-                <p>你能抓到我么？</p>
+                <p>点击下方来了解我</p>
                 <div class="catch-me" >
                     <div class="">
                         <el-tooltip  class="item"  content="Github" placement="top" >
@@ -51,7 +51,7 @@
         <section></section>
         <section class="rs3" >
             <h2 class="ui label">
-                这些人都排着队来跟我说话
+                这些人在这里留下了足迹
             </h2>
             <ul class="rs3-textwidget">
                 <li class="rs3-item" v-for="(item,index) in artCommentList" :key="'artCommentList'+index">
@@ -103,12 +103,12 @@ import {ShowBrowseCount,ShowArtCommentCount,showLikeData,GetLike} from '../utils
                 initLikeNum:0,//初始化喜欢数量
                 catchMeObj:{//抓住我 个人信息
                     Qinlh:{
-                        git:'https://gitee.com/qinlh',
+                        git:'https://.../qinlh',
                         qq: 'static/img/qinlh/qq.jpg',
-                        sina: 'https://weibo.com/u/2313631533',
+                        sina: 'https://.../u/2313631533',
                         wechat: 'static/img/qinlh/wechat.jpg',
-                        csdn: 'http://www.qinlinhui.cn',
-                        job: 'http://qinlh.mangoya.cn/MyResume/'
+                        csdn: 'http://www.....cn',
+                        job: 'http://..../MyResume/'
                     },
                     Aimee:{
                         git: 'https://github.com/Aimee1608',
