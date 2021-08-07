@@ -194,22 +194,22 @@ const FriendUrlData = (callback) =>{
 
 //查询关于我
 const AboutMeData = (callback) =>{
-    if(sessionStorage.getItem('AboutMeData')){
-        var data = JSON.parse(sessionStorage.getItem('AboutMeData'));
-        callback && callback(data)
-    }else{
-        let url = portUrl + 'outh/AboutMeData';
-        axios.get(url).then(num => {
-            if(num.data.code==1010){
-                sessionStorage.setItem('AboutMeData',JSON.stringify(num.data.data));
-                callback && callback(num.data.data);
-            }else if(num.data.code==1005){
-                return;
-            }else{
-                alert("查询失败");
-            }
-        })
-    }
+    // if(sessionStorage.getItem('AboutMeData')){
+    //     var data = JSON.parse(sessionStorage.getItem('AboutMeData'));
+    //     callback && callback(data)
+    // }else{
+    //     let url = portUrl + 'outh/AboutMeData';
+    //     axios.get(url).then(num => {
+    //         if(num.data.code==1010){
+    //             sessionStorage.setItem('AboutMeData',JSON.stringify(num.data.data));
+    //             callback && callback(num.data.data);
+    //         }else if(num.data.code==1005){
+    //             return;
+    //         }else{
+    //             alert("查询失败");
+    //         }
+    //     })
+    // }
 }
 
 //文章点击收藏 点击喜欢
@@ -332,8 +332,9 @@ const changeTheme = (callback) => {
     }
 }
 
-const getEdit = (user_id,artId,callback)=>{
-    let url = portUrl + 'Edit/getEdit?user_id='+user_id+'&article_id='+artId;
+//编辑发布文章
+const setEdit = (artId,callback)=>{
+    let url = portUrl + 'Edit/setEdit?article_id='+artId;
     axios.get(url).then(num => {
         if(num.data.code==1010){
             callback && callback(num.data);
@@ -368,5 +369,5 @@ export {
         UserInfoSave,//修改用户信息
         initDate,//设置时间
         changeTheme,//获取主题信息
-        getEdit,//编辑发布文章
+        setEdit,//编辑发布文章
     }

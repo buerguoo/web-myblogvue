@@ -256,9 +256,9 @@ export default {
 		var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
 		var onVisibilityChange = function() {
 			if (document[hiddenProperty]) { //被隐藏
-				document.title = '藏好啦(つд⊂)';
+				document.title = '我走了';
 			} else {
-				document.title = '被发现啦(*´∇｀*)'; //当前窗口打开
+				document.title = '我来了'; //当前窗口打开
 				if (that.$route.path != '/DetailShare') {
 					if (localStorage.getItem('userInfo')) {
 						that.haslogin = true;
@@ -661,6 +661,7 @@ export default {
 .h-information h2  a{
 	background: linear-gradient(to right, #DF2050, #48456D);
 	-webkit-background-clip: text;
+	background-clip:text;
 	color: transparent;
 }
 .headImgBox .scene {

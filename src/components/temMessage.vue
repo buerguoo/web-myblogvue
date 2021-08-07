@@ -54,7 +54,7 @@
                             </header>
                             <section>
                                 <p v-html="analyzeEmoji(item.content)">{{analyzeEmoji(item.content)}}</p>
-                                <div v-if="haslogin" class="tmsg-replay" @click="respondMsg(item.comment_id,item.comment_id)">
+                                <div v-if="haslogin" class="tmsg-replay" @click="respondMsg(item.commentId,item.commentId)">
                                     回复
                                 </div>
                             </section>
@@ -76,7 +76,7 @@
                                     </header>
                                     <section>
                                         <p v-html="analyzeEmoji(citem.content)">{{citem.content}}</p>
-                                        <div v-show="haslogin" class="tmsg-replay" @click="respondMsg(citem.comment_id,item.comment_id)">
+                                        <div v-show="haslogin" class="tmsg-replay" @click="respondMsg(citem.commentId,item.commentId)">
                                             回复
                                         </div>
                                     </section>
@@ -301,7 +301,7 @@
                           that.hasMore = true;
                       }
                       that.commentList = initData ? msg : that.commentList.concat(msg);
-                      that.pageId = msg[msg.length-1].comment_id;
+                      that.pageId = msg[msg.length-1].commentId;
                   }else{//查询数据为空
                       that.hasMore = false;
                       that.commentList = initData ? [] : that.commentList
