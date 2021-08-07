@@ -333,7 +333,7 @@ const changeTheme = (callback) => {
 }
 
 //编辑发布文章
-const setEdit = (artId,callback)=>{
+const setEdit = (artId,userId,callback)=>{
     let url = portUrl + 'Edit/setEdit?article_id='+artId;
     axios.get(url).then(num => {
         if(num.data.code==1010){
