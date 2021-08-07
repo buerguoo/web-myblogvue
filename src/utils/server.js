@@ -72,11 +72,12 @@ const navMenList  = (callback) => {
 
 //查询文章列表
 const ShowArticleAll = (artId,cateId,articleName,level,callback) =>{
-    if(level == 1){
-        var url = portUrl + 'nav/ActiveClassAllData?art_id='+artId+'&cate_id='+cateId+'&article_name='+articleName;
-    }else{
-        var url = portUrl + 'article/ShowArticleAll?art_id='+artId+'&cate_id='+cateId+'&article_name='+articleName;
-    }
+    // if(level == 1){
+    //     var url = portUrl + 'nav/ActiveClassAllData?art_id='+artId+'&cate_id='+cateId+'&article_name='+articleName;
+    // }else{
+    //     var url = portUrl + 'article/ShowArticleAll?art_id='+artId+'&cate_id='+cateId+'&article_name='+articleName;
+    // }
+    var url = portUrl + 'article/ShowArticleAll?art_id='+artId+'&cate_id='+cateId+'&article_name='+articleName;
     axios.get(url).then(num => {
             callback && callback(num.data);
     })
@@ -99,6 +100,7 @@ const ShowBrowseCount = (callback) =>{
     let url = portUrl + 'article/ShowBrowseCount';
     axios.get(url).then(num => {
         if(num.data.code=1010){
+            
             callback && callback(num.data.data);
         }else if(num.data.code==1005){
             return;
@@ -111,7 +113,9 @@ const ShowBrowseCount = (callback) =>{
 //查询文章评论量最大的10篇文章
 const ShowArtCommentCount = (callback) =>{
     let url = portUrl + 'article/ShowArtCommentCount';
+    console.log('DICKYYYYYYY',callback);
     axios.get(url).then(num => {
+        console.log('DICKYYYDICKYYY',num);
         if(num.data.code==1010){
             callback && callback(num.data.data);
         }else if(num.data.code==1005){
