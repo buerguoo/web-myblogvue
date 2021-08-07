@@ -5,7 +5,7 @@
       <div>
         <el-form ref="ruleForm" status-icon :model="ruleForm" :rules="rules" label-width="100px">
           <el-form-item label="标题" prop="title">
-              <el-input v-model="editForm.title"></el-input>
+              <el-input v-model="ruleForm.title"></el-input>
           </el-form-item>
           <div id="checkboxes">
               <span>美食</span>
@@ -18,7 +18,7 @@
               <input type="checkbox" value="感悟" v-model="categories">
           </div>
           <el-form-item label="内容" prop="content">
-             <mavon-editor v-model="editForm.content"/>
+             <mavon-editor v-model="ruleForm.content"/>
           </el-form-item>
           <el-form-item>
              <el-button type="primary" @click="submitForm('ruleForm')">发布文章</el-button>
@@ -35,7 +35,7 @@
     export default {
         data() { //选项 / 数据
             return {
-                editForm: {
+                ruleForm: {
                      artId: '',
                      title: '',
                      content: '',
@@ -46,9 +46,9 @@
                          {required: true, message: '请输入标题', trigger: 'blur'},
                          {min: 3, max: 50, message: '长度在 3 到 50 个字符', trigger: 'blur'}
                     ],
-                //  content: [
-                //          { required: true,message: '请输入内容', trigger: 'change' }
-                //     ],
+                 content: [
+                         { required: true,message: '请输入内容', trigger: 'change' }
+                    ],
                 }
 
             }
