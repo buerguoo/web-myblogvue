@@ -400,7 +400,7 @@ a {
 }
 .smalltitle{
     /*height:36px;*/
-    /*line-height: 36px;*/
+    line-height: 36px;
 }
 
 .logoImg{

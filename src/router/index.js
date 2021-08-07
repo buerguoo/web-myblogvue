@@ -20,7 +20,8 @@ export default new Router({
 		}
 	},
 	base: '/web/',//打包项目的根目录
-	routes: [{
+	routes: [
+		{
 			path: '/',
 			component: resolve => require(['../pages/Home.vue'], resolve),
 			meta: {
@@ -37,6 +38,7 @@ export default new Router({
 			},
 			name: 'Home'
 		}, //首页
+
 
 		{
 			path: '/Share',

@@ -431,7 +431,7 @@ div.rightlistBox .rs2.fixed {
 }
 .smalltitle {
   /*height:36px;*/
-  /*line-height: 36px;*/
+  line-height: 36px;
 }
 .logoImg {
   width: 160px;

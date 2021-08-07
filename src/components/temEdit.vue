@@ -7,7 +7,7 @@
           <el-form-item label="标题" prop="title">
               <el-input v-model="ruleForm.title"></el-input>
           </el-form-item>
-          <div id="checkboxes">
+          <!-- <div id="checkboxes">
               <span>美食</span>
               <input type="checkbox" value="美食" v-model="categories">
               <span>技术</span>
@@ -16,9 +16,9 @@
               <input type="checkbox" value="生活" v-model="categories">
               <span>感悟</span>
               <input type="checkbox" value="感悟" v-model="categories">
-          </div>
+          </div> -->
           <el-form-item label="内容" prop="content">
-             <mavon-editor v-model="ruleForm.content"/>
+             <mavon-editor v-model="ruleForm.content" class="Editer"></mavon-editor>
           </el-form-item>
           <el-form-item>
              <el-button type="primary" @click="submitForm('ruleForm')">发布文章</el-button>
@@ -36,10 +36,10 @@
         data() { //选项 / 数据
             return {
                 ruleForm: {
-                     artId: '',
-                     title: '',
-                     content: '',
-                     categories:[]
+                     artId: ' ',
+                     title: ' ',
+                     content: ' '
+                    //  categories:[]
                 },
                 rules: {
                  title: [
@@ -69,32 +69,31 @@
             //    }
               this.$refs[formName].validate((valid) => {
                 if (valid) {
-                         this.$axios.get('/DetailShare', this.ruleForm, {
+                    const _this=this
+                         this.$axios.get('/DetailShare/edit', this.ruleForm, {
                             headers:{
                                 "Authorization": localStorage.getItem("token")
                              }
-                         }).then((res) => {//请求成功
+                         }).then(res => {//请求成功
                                _this.$alert('操作成功', '提示', {
                                    confirmButtonText: '确定',
                                callback: () => {//发送成功，切换界面
                                     _this.$router.push("/Home")
                                 }
                             });
-                        });
+                        })
                 } else {
-                     //console.log('error submit!!');
+                     console.log('error submit!!');
                      return false;
                 }
              })
-            }
+            },
+            resetForm(formName) {
+               this.$refs[formName].resetFields();
+            },
 
 
         },
-
-        resetForm(formName) {
-            this.$refs[formName].resetFields();
-        },
-
         watch: {
 
          },
@@ -102,14 +101,15 @@
 
         },
         created() { //生命周期函数
-           const blogId = this.$route.DetailShare.aId
+           const blogId = this.$route.params.aId
            const _this = this
            if(blogId) {
                this.$axios.get('/DetailShare/' + blogId).then((res) => {
                    const blog = res.data.data
-                    _this.editForm.id = blog.artId
-                    _this.editForm.title = blog.title
-                    _this.editForm.content = blog.content
+                    _this.ruleForm.id = blog.artId
+                    _this.ruleForm.title = blog.title
+                    _this.ruleForm.content = blog.content
+                    //_this.ruleForm.categories = blog.categories
                 });
             }
 
