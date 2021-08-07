@@ -1145,6 +1145,7 @@ to {
 	background: -webkit-gradient(linear, left top, right top, from(#DF2050), to(#48456D));
 	background: linear-gradient(to right, #DF2050, #48456D);
 	-webkit-background-clip: text;
+	background-clip:text;
 	color: transparent;
 }
 .headImgBox .scene {
