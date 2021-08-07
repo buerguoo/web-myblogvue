@@ -123,7 +123,7 @@ import {ShowArticleAll,ArtClassData,initDate} from '../utils/server.js'
                 that.artId = initpage ? 0 : that.artId;
                 ShowArticleAll(that.artId,that.sendId,that.keywords,that.level,(result)=>{
                     // console.log(result);
-                    if(result.code==1001){
+                    if(result.code==1010){
                         var msg = result.data;
                         if(msg.length>0&&msg.length<10){
                             that.hasMore = false

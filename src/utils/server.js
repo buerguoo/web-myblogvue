@@ -23,10 +23,17 @@ const UserLogin = (email, password, callback) => {
 }
 
 //用户退出
+<<<<<<< HEAD
 const LoginOut = (token, callback) => {
     let url = portUrl + 'login/LoginOut?token=' + token;
     axios.post(url).then(num => {
         callback && callback(num.data);
+=======
+const LoginOut = (token,callback) =>{
+    let url = portUrl + 'login/LoginOut?token='+token;
+    axios.get(url).then(num => {
+            callback && callback(num.data);
+>>>>>>> 0652b0ae83001c1ea67694b56732f82287329357
     })
 }
 
@@ -330,6 +337,7 @@ const changeTheme = (callback) => {
     }
 }
 
+<<<<<<< HEAD
 const getEdit = (id, callback) => {
     let url = portUrl + 'Edit/getEdit?user_id=' + id;
     axios.get(url).then(num => {
@@ -344,6 +352,12 @@ const getEdit = (id, callback) => {
             });
         }
         if (num.data.code == 1010) {
+=======
+const getEdit = (user_id,artId,callback)=>{
+    let url = portUrl + 'Edit/getEdit?user_id='+user_id+'&article_id='+artId;
+    axios.get(url).then(num => {
+        if(num.data.code==1010){
+>>>>>>> 0652b0ae83001c1ea67694b56732f82287329357
             callback && callback(num.data);
         } else {
             alert("发布失败");

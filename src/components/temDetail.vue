@@ -68,7 +68,17 @@ import {getArticleInfo,getArtLikeCollect,initDate} from '../utils/server.js'
             return {
                 aid:'',//文章ID
                 pdonate:true,//打开赞赏控制,
-                detailObj:'',//返回详情数据
+                 detailObj: {
+                   id: 1,
+                   title: '文章标题',
+                   create_time: '1578955555',
+                   browse_count: '33',
+                   comment_count: '44',
+                   cate_name: 'dddd',
+                   wechat_image: '',
+                   alipay_image: '',
+                   content: 'sdjfkadjfklajdfkaljfaklsdjfklajdfaksfjksd'
+                },//返回详情数据
                 likeArt:false,//是否点赞
                 likeCount:400,//点赞数量
                 collectCount:500,//收藏数量

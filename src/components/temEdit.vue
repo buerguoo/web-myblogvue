@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {getEdit,getArtLikeCollect,initDate} from '../utils/server.js'
+//import {getEdit,getArtLikeCollect,initDate} from '../utils/server.js'
     export default {
         data() { //选项 / 数据
             return {
@@ -38,24 +38,13 @@ import {getEdit,getArtLikeCollect,initDate} from '../utils/server.js'
 
             }
         },
-        created() {
-           const blogId = this.$route.params.blogId
-           const _this = this
-           if(blogId) {
-               this.$axios.get('/blog/' + blogId).then((res) => {
-                   const blog = res.data.data
-                    _this.editForm.id = blog.artId
-                    _this.editForm.title = blog.title
-                    _this.editForm.content = blog.content
-                });
-            }
-        },
+
         methods: { //事件处理器
            submitForm() {
               const _this = this
               this.$refs.editForm.validate((valid) => {
                 if (valid) {
-                         this.$axios.post('/blog/edit', this.editForm, {
+                         this.$axios.post('/Edit', this.editForm, {
                            headers: {
                                "Authorization": localStorage.getItem("token")
                             }
@@ -84,6 +73,16 @@ import {getEdit,getArtLikeCollect,initDate} from '../utils/server.js'
 
         },
         created() { //生命周期函数
+           const blogId = this.$route.DetailShare.aId
+           const _this = this
+           if(blogId) {
+               this.$axios.get('/DetailShare/' + blogId).then((res) => {
+                   const blog = res.data.data
+                    _this.editForm.id = blog.artId
+                    _this.editForm.title = blog.title
+                    _this.editForm.content = blog.content
+                });
+            }
 
         }
     }

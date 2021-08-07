@@ -3,16 +3,16 @@
     <div>
         <div class="container">
             <h1 class="loginTitle">
-                <a href="#/">{{this.$store.state.themeObj.user_start!=0?"Aimee 的博客":"Qinlh 的博客"}}</a>
+                <a href="#/">{{this.$store.state.themeObj.user_start!=0?" World博客":"Qinlh 的博客"}}</a>
             </h1>
             <!-- 登录注册 -->
             <div v-show="!err2005" class="">
                 <div v-if="login==1" class="loginBox">
                     <div class="lr-title">
                         <h1>登录</h1>
-                        <p>
+                        <!--<p>
                             新用户<a href="#/Login?login=0" class="tcolors">注册</a>
-                        </p>
+                        </p>-->
                     </div>
                     <el-alert
                         v-show="loginErr"
