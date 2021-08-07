@@ -27,7 +27,7 @@ const UserLogin =  (email,password,callback) =>{
 //用户退出
 const LoginOut = (token,callback) =>{
     let url = portUrl + 'login/LoginOut?token='+token;
-    axios.post(url).then(num => {
+    axios.get(url).then(num => {
             callback && callback(num.data);
     })
 }
@@ -332,19 +332,9 @@ const changeTheme = (callback) => {
     }
 }
 
-const getEdit = (id,callback)=>{
-    let url = portUrl + 'Edit/getEdit?user_id='+id;
+const getEdit = (user_id,artId,callback)=>{
+    let url = portUrl + 'Edit/getEdit?user_id='+user_id+'&article_id='+artId;
     axios.get(url).then(num => {
-        const blogId = this.$route.params.blogId
-           const _this = this
-           if(blogId) {
-               this.$axios.get('/blog/' + blogId).then((res) => {
-                   const blog = res.data.data
-                    _this.editForm.id = blog.id
-                    _this.editForm.title = blog.title
-                    _this.editForm.content = blog.content
-                });
-            }
         if(num.data.code==1010){
             callback && callback(num.data);
         }else{

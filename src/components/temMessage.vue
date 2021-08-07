@@ -35,7 +35,7 @@
             </form>
         </div>
         <div class="tmsg-comments"  ref="listDom">
-            <a href="#" class="tmsg-comments-tip">活捉 {{commentList?commentList.length:0}} 条</a>
+            <a href="#" class="tmsg-comments-tip">发现 {{commentList?commentList.length:0}} 条</a>
             <div class="tmsg-commentshow">
                 <ul class="tmsg-commentlist">
                     <li class="tmsg-c-item" v-for="(item,index) in commentList" :key="'common'+index">
@@ -113,7 +113,7 @@
                 leaveId:0,//回复评论的当前的commentId
                 leavePid:'',//赞赏等其他模块的分类id
                 pid:'',//回复评论的一级commentId
-                sendTip:'发送~',
+                sendTip:'发送',
                 OwOlist:[//表情包和表情路径
                     {'title':'微笑','url':'weixiao.gif'},
                    {'title':'嘻嘻','url':'xixi.gif'},
@@ -218,7 +218,7 @@
           sendMsg:function(){//留言
               var that = this;
               if(that.textarea){
-                  that.sendTip = '咻~~';
+                  that.sendTip = '发送成功';
                   if(that.leaveId==0){
                     //   console.log(that.textarea,that.userId,that.aid,that.leavePid,that.pid);
                       setArticleComment(that.textarea,that.userId,that.aid,that.leavePid,that.pid,function(msg){
@@ -227,7 +227,7 @@
                           that.routeChange();
                           that.removeRespond();
                           var timer02 = setTimeout(function(){
-                              that.sendTip = '发送~';
+                              that.sendTip = '发送';
                               clearTimeout(timer02);
                           },1000)
                       })
@@ -241,9 +241,9 @@
                       })
                   }
               }else{
-                  that.sendTip = '内容不能为空~'
+                  that.sendTip = '内容不能为空'
                   var timer = setTimeout(function(){
-                      that.sendTip = '发送~';
+                      that.sendTip = '发送';
                       clearTimeout(timer);
                   },3000)
               }
@@ -251,7 +251,7 @@
           respondMsg:function(leavePid,pid){//回复留言
               // console.log(leavePid,pid);
               var that = this;
-              if(localStorage.getItem('userInfo')){
+              if(localStorage.getItem('userInfo')){//判断用户是否登录
                   var dom = event.currentTarget;
                   dom = dom.parentNode;
                   this.isRespond = true;
@@ -292,7 +292,7 @@
               that.pageId = initData ? 0 : that.pageId;
               //公用设置数据方法
               function setData(result){
-                  if(result.code==1001){//查询数据
+                  if(result.code==1010){//查询数据
                       var msg = result.data;
                     //   console.log("留言数据",result.data);
                       if(msg.length>0&&msg.length<8){
