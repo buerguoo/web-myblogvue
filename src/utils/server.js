@@ -51,27 +51,27 @@ const ArtClassData = (callback) => {
     }
 }
 
-//实验室 列表项目
-const navMenList  = (callback) => {
-    if(sessionStorage.getItem('navMenList')){
-        var data = JSON.parse(sessionStorage.getItem('navMenList'));
-        callback && callback(data)
-    }else{
-        let url = portUrl + 'nav/navMenList';
-        axios.get(url).then(num => {
-            // console.log(num);
-            if(num.data.code==1010){
-                sessionStorage.setItem('navMenList',JSON.stringify(num.data.data));
-                callback && callback(num.data.data)
-            }else{
-                alert("查询失败")
-            }
-        })
-    }
-}
+// //实验室 列表项目
+// const navMenList  = (callback) => {
+//     if(sessionStorage.getItem('navMenList')){
+//         var data = JSON.parse(sessionStorage.getItem('navMenList'));
+//         callback && callback(data)
+//     }else{
+//         let url = portUrl + 'nav/navMenList';
+//         axios.get(url).then(num => {
+//             // console.log(num);
+//             if(num.data.code==1010){
+//                 sessionStorage.setItem('navMenList',JSON.stringify(num.data.data));
+//                 callback && callback(num.data.data)
+//             }else{
+//                 alert("查询失败")
+//             }
+//         })
+//     }
+// }
 
 //查询文章列表
-const ShowArticleAll = (artId,cateId,articleName,level,callback) =>{
+const ShowArticleAll = (artId,cateId,articleName,callback) =>{
     // if(level == 1){
     //     var url = portUrl + 'nav/ActiveClassAllData?art_id='+artId+'&cate_id='+cateId+'&article_name='+articleName;
     // }else{
@@ -353,7 +353,7 @@ export {
         UserLogin,//登录
         LoginOut,//退出登录
         ArtClassData,//分类
-        navMenList,//导航信息
+       // navMenList,//导航信息
         ShowArticleAll,//查询文章列表
         getArticleInfo,//文章详情
         ShowBrowseCount,//流量量做多的文章

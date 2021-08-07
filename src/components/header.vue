@@ -111,10 +111,16 @@
 </div>
 </template>
 <script>
+// import {
+// 	ArtClassData,
+// 	LoginOut,
+// 	navMenList,
+// 	changeTheme,
+// 	AboutMeData
+// } from '../utils/server.js'
 import {
 	ArtClassData,
 	LoginOut,
-	navMenList,
 	changeTheme,
 	AboutMeData
 } from '../utils/server.js'
@@ -227,10 +233,10 @@ export default {
 				// console.log(msg);
 				that.classListObj = msg;
 			})
-			navMenList(function(msg) { //实验室项目列表获取
-				// console.log('实验室',msg);
-				that.projectList = msg;
-			});
+			// navMenList(function(msg) { //实验室项目列表获取
+			// 	// console.log('实验室',msg);
+			// 	that.projectList = msg;
+			// });
 			if ((this.$route.name == "Share" || this.$route.name == "Home") && this.$store.state.keywords) {
 				this.input = this.$store.state.keywords;
 			} else {

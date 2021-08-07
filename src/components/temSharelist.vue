@@ -71,7 +71,6 @@ import {ShowArticleAll,ArtClassData,initDate} from '../utils/server.js'
                 classtwoId:5,
                 keywords:'',
                 hasMore:true,
-                level:1,
                 shareClass:[
                     {classId:1,name:'技术分享',detshare:[
                         {classId:5,name:'移动端H5',pid:1},
@@ -102,7 +101,6 @@ import {ShowArticleAll,ArtClassData,initDate} from '../utils/server.js'
                 that.keywords = that.$store.state.keywords;//获取传参的keywords
                 that.classtwoId = that.$route.query.classtwoId==undefined?'':parseInt(that.$route.query.classtwoId);//获取传参的classtwoId
                 that.sendId = that.classtwoId?that.classtwoId:that.classId;
-                that.level = that.keywords ? 0 : that.classtwoId?0:1;
                 // console.log(that.classId);
                 ArtClassData(function(msg){
                     // console.log(msg);
@@ -113,7 +111,7 @@ import {ShowArticleAll,ArtClassData,initDate} from '../utils/server.js'
                     if(that.classId==that.shareClass[i].class_id){
                         that.className = that.shareClass[i].cate_name;
                         if(that.shareClass[i].ChildsSon&&that.shareClass[i].ChildsSon.length>0){
-                            that.sonclassList = that.shareClass[i].ChildsSon;
+                            that.sonclassList = that.shareClass[i].ClevelhildsSon;
                         }else{
                             that.sonclassList = '';
                         }
@@ -121,7 +119,7 @@ import {ShowArticleAll,ArtClassData,initDate} from '../utils/server.js'
                 }
                 //初始化 文章id为0开始
                 that.artId = initpage ? 0 : that.artId;
-                ShowArticleAll(that.artId,that.sendId,that.keywords,that.level,(result)=>{
+                ShowArticleAll(that.artId,that.sendId,that.keywords,(result)=>{
                     // console.log(result);
                     if(result.code==1010){
                         var msg = result.data;
@@ -130,7 +128,8 @@ import {ShowArticleAll,ArtClassData,initDate} from '../utils/server.js'
                         }else{
                             that.hasMore = true;
                         }
-                        that.articleList = initpage ? msg : that.articleList.concat(msg);
+                      //  var temp  =that.articleList;
+                        that.articleList = initpage ? msg:that.articleList.concat(msg);
                         that.artId = msg[msg.length-1].id;
                         // console.log(that.artId);
                     }else{
