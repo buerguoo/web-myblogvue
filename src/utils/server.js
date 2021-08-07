@@ -51,24 +51,24 @@ const ArtClassData = (callback) => {
     }
 }
 
-// //实验室 列表项目
-// const navMenList  = (callback) => {
-//     if(sessionStorage.getItem('navMenList')){
-//         var data = JSON.parse(sessionStorage.getItem('navMenList'));
-//         callback && callback(data)
-//     }else{
-//         let url = portUrl + 'nav/navMenList';
-//         axios.get(url).then(num => {
-//             // console.log(num);
-//             if(num.data.code==1010){
-//                 sessionStorage.setItem('navMenList',JSON.stringify(num.data.data));
-//                 callback && callback(num.data.data)
-//             }else{
-//                 alert("查询失败")
-//             }
-//         })
-//     }
-// }
+//实验室 列表项目
+const navMenList  = (callback) => {
+    if(sessionStorage.getItem('navMenList')){
+        var data = JSON.parse(sessionStorage.getItem('navMenList'));
+        callback && callback(data)
+    }else{
+        let url = portUrl + 'nav/navMenList';
+        axios.get(url).then(num => {
+            // console.log(num);
+            if(num.data.code==1010){
+                sessionStorage.setItem('navMenList',JSON.stringify(num.data.data));
+                callback && callback(num.data.data)
+            }else{
+                alert("查询失败")
+            }
+        })
+    }
+}
 
 //查询文章列表
 const ShowArticleAll = (artId,cateId,articleName,callback) =>{
@@ -95,6 +95,17 @@ const getArticleInfo = (artId,userId,callback) =>{
     })
 }
 
+const postArticle = (title,content) =>{
+    let url = portUrl + 'article/edit?title='+title+'&content='+content;
+    axios.get(url).then(num=>{
+        if(num.data.code==1010){
+            alert("发布成功");
+        }
+        else{
+            alert("发布失败");
+        }
+    })
+}
 //查询浏览量最多的10篇文章数据
 const ShowBrowseCount = (callback) =>{
     let url = portUrl + 'article/ShowBrowseCount';
@@ -374,4 +385,5 @@ export {
         initDate,//设置时间
         changeTheme,//获取主题信息
         setEdit,//编辑发布文章
+        postArticle,
     }

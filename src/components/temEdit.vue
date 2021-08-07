@@ -30,21 +30,20 @@
 </template>
 
 <script>
-//import { setEdit } from '../utils/server.js'
+import { postArticle } from '../utils/server.js'
 //import {setEdit,getArtLikeCollect,initDate} from '../utils/server.js'
     export default {
         data() { //选项 / 数据
             return {
                 ruleForm: {
-                     artId: ' ',
-                     title: ' ',
-                     content: ' '
+                     title: '',
+                     content: ''
                     //  categories:[]
                 },
                 rules: {
                  title: [
                          {required: true, message: '请输入标题', trigger: 'blur'},
-                         {min: 3, max: 50, message: '长度在 3 到 50 个字符', trigger: 'blur'}
+                         //{min: 3, max: 50, message: '长度在 3 到 50 个字符', trigger: 'blur'}
                     ],
                  content: [
                          { required: true,message: '请输入内容', trigger: 'change' }
@@ -67,24 +66,25 @@
             //         _this.$alert('不能为空')
             //         return false;
             //    }
-              this.$refs[formName].validate((valid) => {
+            //   this.$refs[formName].validate((valid) => {
+            //     if (valid) {
+            //         const _this=this;
+            //              this.$axios.get('/article/edit', this.ruleForm).then(res => {//请求成功
+            //                    _this.$alert('操作成功', '提示', {
+            //                        confirmButtonText: '确定',
+            //                    callback: () => {//发送成功，切换界面
+            //                         _this.$router.push("/Home")
+            //                     }
+            //                 });
+            //             })
+            //     } else {
+            //          console.log('error submit!!');
+            //          return false;
+            //     }
+            //  })
+            this.$refs[formName].validate((valid) => {
                 if (valid) {
-                    const _this=this
-                         this.$axios.get('/DetailShare/edit', this.ruleForm, {
-                            headers:{
-                                "Authorization": localStorage.getItem("token")
-                             }
-                         }).then(res => {//请求成功
-                               _this.$alert('操作成功', '提示', {
-                                   confirmButtonText: '确定',
-                               callback: () => {//发送成功，切换界面
-                                    _this.$router.push("/Home")
-                                }
-                            });
-                        })
-                } else {
-                     console.log('error submit!!');
-                     return false;
+                  postArticle(this.ruleForm.title,this.ruleForm.content);
                 }
              })
             },

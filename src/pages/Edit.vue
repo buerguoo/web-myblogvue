@@ -18,7 +18,6 @@
 <script>
 import header from '../components/header.vue'
 import footer from '../components/footer.vue'
-import temRightlist from '../components/temRightlist.vue'
 import temEdit from '../components/temEdit.vue'
     export default {
         name:'Edit',
@@ -32,7 +31,6 @@ import temEdit from '../components/temEdit.vue'
         },
         components: { //定义组件
             'wbc-nav':header,
-            'wbc-rightlist':temRightlist,
             'wbc-footer':footer,
             'wbc-edittxt':temEdit
         },

@@ -192,8 +192,8 @@ import {getRegister,UserLogin} from '../utils/server.js'
             },
             gotoHome:function(){//用户登录
                 var that = this;
-                //var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/ ;
-                var reg = /.*/;
+                var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/ ;
+                //eg = /.*/;
                 var preg = /^(\w){6,12}$/;
                 if(reg.test(that.email)){
                     that.emailErr = false;
