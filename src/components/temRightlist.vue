@@ -111,12 +111,12 @@ import {ShowBrowseCount,ShowArtCommentCount,showLikeData,GetLike} from '../utils
                         job: 'http://..../MyResume/'
                     },
                     Aimee:{
-                        git: 'https://github.com/Aimee1608',
+                        git: 'https://...github.com/Aimee1608',
                         qq: 'static/img/aimee/QQ.jpg',
-                        sina: 'https://weibo.com/u/2242812941',
+                        sina: 'https://...weibo.com/u/2242812941',
                         wechat: 'static/img/aimee/erwm.jpg',
-                        csdn: 'http://blog.csdn.net/Aimee1608',
-                        job: 'http://aimee.mangoya.cn'
+                        csdn: 'http://...blog.csdn.net/Aimee1608',
+                        job: 'http://...aimee.mangoya.cn'
                     }
                 },
                 isAimee:this.$store.state.themeObj.user_start!=0?"Aimee":"Qinlh"//判断是哪个的博客

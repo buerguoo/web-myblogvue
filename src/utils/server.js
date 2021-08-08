@@ -95,8 +95,8 @@ const getArticleInfo = (artId,userId,callback) =>{
     })
 }
 //发布文章
-const postArticle = (title,content,label) =>{
-    let url = portUrl + 'article/edit?title='+title+'&content='+content+'&label='+label;
+const postArticle = (title,content,labele) =>{
+    let url = portUrl + 'article/edit?title='+title+'&content='+content+'&label='+labele;
     axios.get(url).then(num=>{
         if(num.data.code==1010){
             alert("发布成功");;
@@ -104,9 +104,21 @@ const postArticle = (title,content,label) =>{
         else{
             alert("发布失败");
         }
-        
     })
 }
+
+// const postArticle = (title,content) =>{
+//     let url = portUrl + 'article/edit?title='+title+'&content='+content;
+//     axios.get(url).then(num=>{
+//         if(num.data.code==1010){
+//             alert("发布成功");;
+//         }
+//         else{
+//             alert("发布失败");
+//         }
+//     })
+// }
+
 //查询浏览量最多的10篇文章数据
 const ShowBrowseCount = (callback) =>{
     let url = portUrl + 'article/ShowBrowseCount';
