@@ -7,6 +7,21 @@
           <el-form-item label="标题" prop="title">
               <el-input v-model="ruleForm.title"></el-input>
           </el-form-item>
+          <!-- <div>
+              <span class="leftTitle">性别</span>
+              
+                    <el-radio class="radio" v-model="wwww" label="0">男</el-radio>
+                    <el-radio class="radio" v-model="wwww" label="1">女</el-radio>
+            
+          </div> -->
+         <div id="apppp"> 
+              <span class="leftTitle">文章标签</span>
+              <input type="radio"  value="日记" v-model="label" name="name"/><label for="日记">日记</label> 
+              <input type="radio"  value="技术" v-model="label" name="name"/><label for="技术">技术</label> 
+              <input type="radio"  value="美食" v-model="label" name="name"/><label for="美食">美食</label>
+              <input type="radio"  value="感悟" v-model="label" name="name"/><label for="感悟">感悟</label>
+              <!-- <p>已选：{{categories}}</p> -->
+         </div>
           <!-- <div id="checkboxes">
               <span>美食</span>
               <input type="checkbox" value="美食" v-model="categories">
@@ -37,7 +52,8 @@ import { postArticle } from '../utils/server.js'
             return {
                 ruleForm: {
                      title: '',
-                     content: ''
+                     content: '',
+                     label: '',
                     //  categories:[]
                 },
                 rules: {
@@ -84,7 +100,7 @@ import { postArticle } from '../utils/server.js'
             //  })
             this.$refs[formName].validate((valid) => {
                 if (valid) {
-                  postArticle(this.ruleForm.title,this.ruleForm.content);
+                  postArticle(this.ruleForm.title,this.ruleForm.content,this.data.label);
                   this.$router.push({ path: '/Home' });
                 }
              })

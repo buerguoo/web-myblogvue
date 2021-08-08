@@ -95,8 +95,8 @@ const getArticleInfo = (artId,userId,callback) =>{
     })
 }
 //发布文章
-const postArticle = (title,content) =>{
-    let url = portUrl + 'article/edit?title='+title+'&content='+content;
+const postArticle = (title,content,label) =>{
+    let url = portUrl + 'article/edit?title='+title+'&content='+content+'&label='+label;
     axios.get(url).then(num=>{
         if(num.data.code==1010){
             alert("发布成功");;
