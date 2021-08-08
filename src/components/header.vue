@@ -229,7 +229,7 @@ export default {
 			} else {
 				that.haslogin = false;
 			}
-			ArtClassData(function(msg) { //文章分类
+			ArtClassData(function(msg) { //文章分类列表获取
 				// console.log(msg);
 				that.classListObj = msg;
 			})
