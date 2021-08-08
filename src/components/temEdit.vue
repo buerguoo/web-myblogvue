@@ -16,11 +16,11 @@
           </div> -->
          <div id="apppp"> 
               <span class="leftTitle" prop="labele">文章标签</span>
-              <input type="radio"  value="日记" v-model="labele" name="name"><label for="日记">日记</label> 
-              <input type="radio"  value="技术" v-model="labele" name="name"><label for="技术">技术</label> 
-              <input type="radio"  value="美食" v-model="labele" name="name"><label for="美食">美食</label>
-              <input type="radio"  value="感悟" v-model="labele" name="name"><label for="感悟">感悟</label>
-              <p>已选：{{labele}}</p>
+              <input type="radio"  value="日记" v-model="ruleForm.labele" name="name"><label for="日记">日记</label> 
+              <input type="radio"  value="技术" v-model="ruleForm.labele" name="name"><label for="技术">技术</label> 
+              <input type="radio"  value="美食" v-model="ruleForm.labele" name="name"><label for="美食">美食</label>
+              <input type="radio"  value="感悟" v-model="ruleForm.labele" name="name"><label for="感悟">感悟</label>
+              <p>已选：{{ruleForm.labele}}</p>
          </div>
           <!-- <div id="checkboxes">
               <span>美食</span>
@@ -100,7 +100,7 @@ import { postArticle } from '../utils/server.js'
             //  })
             this.$refs[formName].validate((valid) => {
                 if (valid) {
-                  //console.log(labele)
+                  console.log(this.ruleForm.labele)
                   postArticle(this.ruleForm.title,this.ruleForm.content,this.ruleForm.labele);
                   //postArticle(this.ruleForm.title,this.ruleForm.content);
                   this.$router.push({ path: '/Home' });
