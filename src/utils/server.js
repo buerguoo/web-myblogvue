@@ -48,7 +48,7 @@ const ArtClassData = (callback) => {
                 alert("查询失败")
             }
         })
-    //}
+    // }
 }
 
 //实验室 列表项目
@@ -336,7 +336,7 @@ const initDate = (oldDate,full) => {
     }else if(full== 'month'){
         return odate.getMonth()+1
     }else if(full == 'date'){
-        return year+'年'+month+'月'+date+'日';
+        return date
     }else if(full== 'newDate'){
         return year+'年'+month+'月'+date+'日';
     }

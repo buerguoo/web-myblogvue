@@ -64,7 +64,7 @@ import {ShowArticleAll,ArtClassData,initDate} from '../utils/server.js'
         data() { //选项 / 数据
             return {
                 artId:0,
-                classId:1,
+                classId:0,
                 sendId:'',
                 className:'',
                 sonclassList:'',//二级分类
@@ -72,18 +72,18 @@ import {ShowArticleAll,ArtClassData,initDate} from '../utils/server.js'
                 keywords:'',
                 hasMore:true,
                 shareClass:[
-                    {class_id:1,name:'技术分享',detshare:[
-                        {class_id:5,name:'移动端H5',pid:1},
-                        {class_id:6,name:'pc端web',pid:1},
-                        {class_id:7,name:'小程序',pid:1},
-                        {class_id:8,name:'php',pid:1},
-                        {class_id:9,name:'nodejs',pid:1},
-                        {class_id:10,name:'软件',pid:1},
-                        {class_id:11,name:'其他',pid:1}
+                    {classId:1,name:'技术分享',detshare:[
+                        {classId:5,name:'移动端H5',pid:1},
+                        {classId:6,name:'pc端web',pid:1},
+                        {classId:7,name:'小程序',pid:1},
+                        {classId:8,name:'php',pid:1},
+                        {classId:9,name:'nodejs',pid:1},
+                        {classId:10,name:'软件',pid:1},
+                        {classId:11,name:'其他',pid:1}
                     ]},
-                    {class_id:2,name:'闲言碎语'},
-                    {class_id:3,name:'事件簿'},
-                    {class_id:4,name:'创作集'}
+                    {classId:2,name:'闲言碎语'},
+                    {classId:3,name:'事件簿'},
+                    {classId:4,name:'创作集'}
                 ],
                 queryClass:1,
                 articleList:'',
@@ -136,7 +136,11 @@ import {ShowArticleAll,ArtClassData,initDate} from '../utils/server.js'
                         that.hasMore = false;
                         that.articleList = initpage ? [] : that.articleList;
                     }
+                that.artId=0;
+                taht.sendId=0;
+                that.keywords='';
                 })
+ 
             },
             addMoreFun:function(){//查看更多
                 this.showSearchShowList(false);
