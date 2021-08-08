@@ -330,7 +330,7 @@ const initDate = (oldDate,full) => {
     if(full=='all'){
         var t = oldDate.split(" ")[0];
         // console.log(oldDate,t.split('-')[0],t.split('-')[1],t.split('-')[2]);
-        return t.split('-')[0]+'年'+t.split('-')[1]+'月'+t.split('-')[2]+'日';
+        return t.split('-')[0]+'年'+t.split('-')[1]+'月'+t.split('-')[2].split(' ')[0]+'日';
     }else if(full=='year'){
         return year
     }else if(full== 'month'){
