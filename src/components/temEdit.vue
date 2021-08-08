@@ -18,7 +18,7 @@
               <input type="checkbox" value="感悟" v-model="categories">
           </div> -->
           <el-form-item label="内容" prop="content">
-             <mavon-editor v-model="ruleForm.content" class="Editer"></mavon-editor>
+             <mavon-editor v-model="ruleForm.content" style="min-height: 500px"></mavon-editor>
           </el-form-item>
           <el-form-item>
              <el-button type="primary" @click="submitForm('ruleForm')">发布文章</el-button>
@@ -85,6 +85,7 @@ import { postArticle } from '../utils/server.js'
             this.$refs[formName].validate((valid) => {
                 if (valid) {
                   postArticle(this.ruleForm.title,this.ruleForm.content);
+                  this.$router.push({ path: '/Home' });
                 }
              })
             },

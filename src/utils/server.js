@@ -94,16 +94,17 @@ const getArticleInfo = (artId,userId,callback) =>{
         }
     })
 }
-
+//发布文章
 const postArticle = (title,content) =>{
     let url = portUrl + 'article/edit?title='+title+'&content='+content;
     axios.get(url).then(num=>{
         if(num.data.code==1010){
-            alert("发布成功");
+            alert("发布成功");;
         }
         else{
             alert("发布失败");
         }
+        
     })
 }
 //查询浏览量最多的10篇文章数据
@@ -347,17 +348,17 @@ const changeTheme = (callback) => {
     }
 }
 
-//编辑发布文章
-const setEdit = (artId,userId,callback)=>{
-    let url = portUrl + 'Edit/setEdit?article_id='+artId;
-    axios.get(url).then(num => {
-        if(num.data.code==1010){
-            callback && callback(num.data);
-        }else{
-            alert("发布失败");
-        }
-    })
-}
+// //编辑发布文章
+// const setEdit = (artId,userId,callback)=>{
+//     let url = portUrl + 'Edit/setEdit?article_id='+artId;
+//     axios.get(url).then(num => {
+//         if(num.data.code==1010){
+//             callback && callback(num.data);
+//         }else{
+//             alert("发布失败");
+//         }
+//     })
+// }
 
 export {
         getRegister,//注册
@@ -384,6 +385,6 @@ export {
         UserInfoSave,//修改用户信息
         initDate,//设置时间
         changeTheme,//获取主题信息
-        setEdit,//编辑发布文章
-        postArticle,
+        //setEdit,//编辑发布文章
+        postArticle,//发布文章
     }

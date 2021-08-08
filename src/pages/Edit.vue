@@ -3,12 +3,12 @@
         <wbc-nav></wbc-nav>
         <div class="container">
             <el-row  :gutter="30">
-                <el-col :sm="24" :md="16" style="transition:all .5s ease-out;margin-bottom:30px;">
+                <el-col :sm="24" :md="22" style="transition:all .5s ease-out;margin-bottom:30px;">
                     <wbc-edittxt></wbc-edittxt>
                 </el-col>
-                <el-col :sm="24"  :md="8" >
+                <!-- <el-col :sm="24"  :md="8" >
                     <wbc-rightlist></wbc-rightlist>
-                </el-col>
+                </el-col> -->
             </el-row>
         </div>
         <wbc-footer></wbc-footer>
