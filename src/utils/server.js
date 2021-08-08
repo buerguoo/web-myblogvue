@@ -34,10 +34,10 @@ const LoginOut = (token,callback) =>{
 
 //文章分类查询
 const ArtClassData = (callback) => {
-    if(sessionStorage.getItem('classList')){
-        var data = JSON.parse(sessionStorage.getItem('classList'));
-        callback && callback(data)
-    }else{
+    // if(sessionStorage.getItem('classList')){
+    //     var data = JSON.parse(sessionStorage.getItem('classList'));
+    //     callback && callback(data)
+    // }else{
         let url = portUrl + 'article/ArtClassData';
         axios.get(url).then(num => {
             // console.log(num);
@@ -48,7 +48,7 @@ const ArtClassData = (callback) => {
                 alert("查询失败")
             }
         })
-    }
+    //}
 }
 
 //实验室 列表项目
@@ -336,7 +336,7 @@ const initDate = (oldDate,full) => {
     }else if(full== 'month'){
         return odate.getMonth()+1
     }else if(full == 'date'){
-        return date
+        return year+'年'+month+'月'+date+'日';
     }else if(full== 'newDate'){
         return year+'年'+month+'月'+date+'日';
     }
