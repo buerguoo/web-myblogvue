@@ -1,6 +1,16 @@
 <!-- 留言评论模块 -->
 <template>
     <div class="tmsgBox"  ref="tmsgBox">
+        <div class="touristBox">
+             <el-form ref="tourist" status-icon :model="tourist" label-width="200px">
+                <el-form-item label="输入你的昵称" prop="tourist">
+                   <el-input v-model="tourist.Tname"></el-input>
+                </el-form-item>
+                <el-form-item label="输入你的邮箱" prop="tourist">
+                   <el-input v-model="tourist.Temail"></el-input>
+                </el-form-item>
+            </el-form>
+        </div>
         <div class="tmsg-respond"  ref="respondBox">
             <h3>发表评论 <small v-show="isRespond" class="tcolorm" @click="removeRespond">取消回复</small></h3>
             <form class=""  >
@@ -98,6 +108,12 @@
     export default {
         data() { //选项 / 数据
             return {
+                tourist:{
+                    Tname:'',
+                    Temail:'',
+                },
+
+
                 respondBox:'',//评论表单
                 listDom:'',//评论列表
                 tmsgBox:'',//总评论盒子
@@ -221,7 +237,7 @@
                   that.sendTip = '发送成功';
                   if(that.leaveId==0){
                     //   console.log(that.textarea,that.userId,that.aid,that.leavePid,that.pid);
-                      setArticleComment(that.textarea,that.userId,that.aid,that.leavePid,that.pid,function(msg){
+                      setArticleComment(that.textarea,that.userId,that.aid,that.leavePid,that.pid,that.tourist.Tname,that.tourist.Temail,function(msg){
                         //   console.log(msg);
                           that.textarea = '';
                           that.routeChange();
@@ -233,7 +249,7 @@
                       })
                   }else{
                       //其他模块留言回复
-                      setOuthComment(that.textarea,that.userId,that.aid,that.leaveId,that.leavePid,that.pid,function(msg){
+                      setOuthComment(that.textarea,that.userId,that.aid,that.leaveId,that.leavePid,that.pid,that.tourist.Tname,that.tourist.Temail,function(msg){
                         //   console.log(msg);
                           that.textarea = '';
                           that.removeRespond();
@@ -355,6 +371,10 @@
 </script>
 
 <style>
+.touristBox{
+    text-align: center;
+}
+
 .tmsgBox{
     position: relative;
     background: #fff;

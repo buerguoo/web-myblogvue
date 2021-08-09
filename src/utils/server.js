@@ -166,16 +166,16 @@ const OtherComment = (leaveId,commentId,callback) =>{//分类类型ID（1：赞�
 }
 
 //文章评论
-const setArticleComment = (content,user_id,article_id,leave_pid,pid,callback) =>{
-    let url = portUrl + 'comment/setArticleComment?content='+content+'&user_id='+user_id+'&article_id='+article_id+'&leave_pid='+leave_pid+'&pid='+pid;
+const setArticleComment = (content,user_id,article_id,leave_pid,pid,Tname,Temail,callback) =>{
+    let url = portUrl + 'comment/setArticleComment?content='+content+'&user_id='+user_id+'&article_id='+article_id+'&leave_pid='+leave_pid+'&pid='+pid+'&Tname='+Tname+'&Temail='+Temail;
     axios.get(url).then(num => {
             callback && callback(num.data);
     })
 }
 
 //其他评论
-const setOuthComment = (content,user_id,article_id,leave_id,leave_pid,pid,callback) =>{
-    let url = portUrl + 'comment/setOuthComment?content='+content+'&user_id='+user_id+'&article_id='+article_id+'&leave_id='+leave_id+'&leave_pid='+leave_pid+'&pid='+pid;
+const setOuthComment = (content,user_id,article_id,leave_id,leave_pid,pid,Tname,Temail,callback) =>{
+    let url = portUrl + 'comment/setOuthComment?content='+content+'&user_id='+user_id+'&article_id='+article_id+'&leave_id='+leave_id+'&leave_pid='+leave_pid+'&pid='+pid+'&Tname='+Tname+'&Temail='+Temail;
     axios.get(url).then(num => {
             callback && callback(num.data);
     })
